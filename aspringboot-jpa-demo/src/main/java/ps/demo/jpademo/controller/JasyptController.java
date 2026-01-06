@@ -29,7 +29,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/v1/jasypt")
+@RequestMapping("/actuator/api/v1/jasypt")
 @Tag(name = "Jasypt Encryption API", description = "API for text encryption and decryption using Jasypt")
 public class JasyptController {
 
