@@ -1,9 +1,9 @@
-package ps.demo.jpademo.config;
+package com.poc.mpt.common;
 
-import com.alibaba.excel.util.StringUtils;
 import jakarta.annotation.PostConstruct;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
@@ -14,9 +14,9 @@ import java.util.List;
 
 @Slf4j
 @Data
-@Profile({"poxy"})
 @Configuration
-@ConfigurationProperties(prefix = "http")
+@ConditionalOnProperty(value = "proxy.enabled", havingValue = "true")
+@ConfigurationProperties(prefix = "proxy")
 public class ProxyConfig {
 
     private String proxyHost;
@@ -34,7 +34,7 @@ public class ProxyConfig {
 
             @Override
             public void connectFailed(URI uri, SocketAddress sa, IOException ioe) {
-                throw new RuntimeException("Proxy connecting failed " + ioe.getMessage());
+                throw new RuntimeException("Proxy connecting failed");
             }
         });
     }

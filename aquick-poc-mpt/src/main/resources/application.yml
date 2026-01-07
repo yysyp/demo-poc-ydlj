@@ -7,6 +7,11 @@ jasypt:
 server:
   port: 20001
 
+proxy:
+  enabled: false
+  proxy-host: xxx.proxy.host
+  proxy-port: 3128
+
 spring:
   application:
     name: aquick-poc-mpt
