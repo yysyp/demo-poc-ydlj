@@ -36,7 +36,7 @@
 技术要求(约束)：
 - 如果是已经存在的项目，并且项目已经有代码，则参考现有代码，在现有代码基础上开发。
 - 用英文输出所有的代码，配置和注释。
-- 如果需要密码，把密码设置为空字符串。
+- 如果需要密码，把密码设置为：xxxxxxxx。
 - 使用 JDK17 以上版本，Spring框架基于 spring-boot3 以上版本，确保引用的其他第三方依赖与之兼容。
 - 如果需要数据库，中间件或服务，优先考虑是否可以用 embedded 模式，其次考虑用 docker 安装这个数据库，中间件或服务，并提供脚本。
 - 应用会采用多实例部署，要考虑并发处理(多线程、锁、分布式锁、异步处理)，和考虑数据一致性(分布式事务、最终一致性)。
@@ -44,8 +44,8 @@
 - 考虑分层架构，如：表现层, 业务逻辑层, 数据访问层，领域模型层等，定义：Request，Response，Dto，Entity等对象传输数据。
 - 如果新加(Controller/REST API)，需要在Controller类上加上完整的基于“Swagger”的声明配置，默认用Swagger v3以上版本。
 - 如果添加Entity实体，对于非连接作用的Entity实体，需要有createdAt，createdBy，updatedAt，updatedBy字段。
-- 默认存储和传输统一使用 UTC 时间的 Instant。
-- 如果有(Controller/REST API)，对于返回结果，统一使用如下一致的返回结构：
+- 对于默认存储和传输的时间类型数据，统一使用 UTC 时间的 Instant。
+- 如果有(Controller/REST API)，对于返回结果，统一使用如下一致的返回结构("meta"属性用于分页时包含相关信息)：
 成功返回：{"success":true, "code":String, "message":String, "timestamp":Instant, "traceId":String, "data":Object, "meta": {"pageNumber":int, "pageSize":int, "totalPages":int, "totalElements":long}}
 失败返回：{"success":false, "code":String, "message":String, "timestamp":Instant, "traceId":String, "data":Object, "errors":[{"field":String, "code":String, "message":String}]}
 - 考虑安全防护，如：SQL注入/XSS/CSRF防护，敏感数据加密，接口防刷，https等。
@@ -57,10 +57,10 @@
 用户需求(概要):
 创建一个演示spring Server-Sent Events用法的应用。
 
+- 创建或更新单元测试，确保测试代码可并行执行和可重复执行，确保代码逻辑分支100%覆盖。
+- 创建或更新基于cucumber的单元测试，确保测试代码可并行执行和可重复执行，确保代码逻辑分支100%覆盖。
+- 创建基于Jenkins的持续集成/持续部署（CI/CD）pipeline，基于容器化（Docker）、容器编排（Kubernetes）部署。
 
 - 可测试性：单元测试、集成测试、测试覆盖率。
 - 可维护性：日志记录、监控、告警、文档。
 - 可扩展性：系统拆分、服务治理、配置管理。
-- 部署与运维：持续集成/持续部署（CI/CD）、容器化（Docker）、容器编排（Kubernetes）。
-- 高可用与容错：集群、熔断、降级、限流。
-
