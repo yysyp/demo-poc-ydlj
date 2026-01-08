@@ -45,6 +45,9 @@
 - 如果新加(Controller/REST API)，需要在Controller类上加上完整的基于“Swagger”的声明配置，默认用Swagger v3以上版本。
 - 如果添加Entity实体，对于非连接作用的Entity实体，需要有createdAt，createdBy，updatedAt，updatedBy字段。
 - 默认存储和传输统一使用 UTC 时间的 Instant。
+- 如果有(Controller/REST API)，对于返回结果，统一使用一致的返回结构，如下：
+成功返回：{"success":true, "code":String, "message":String, "timestamp":Instant, "traceId":String, "data":Object, "meta": {"pageNumber":int, "pageSize":int, "totalPages":int, "totalElements":long}}
+失败返回：{"success":false, "code":String, "message":String, "timestamp":Instant, "traceId":String, "data":Object, "errors":[{"field":String, "code":String, "message":String}]}
 - 考虑安全防护，如：SQL注入/XSS/CSRF防护，敏感数据加密，接口防刷等。
 - 容错性设计，如：熔断器模式，服务降级，限流策略等。
 - 编译然后运行应用，如果过程中出现错误，分析日志和错误原因，并在修复错误之后重新编译和运行，直到应用可以正常启动。
