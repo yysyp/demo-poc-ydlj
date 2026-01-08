@@ -55,7 +55,7 @@
 - 创建或更新测试数据，脚本等。
 - 创建或更新README.md，详细介绍如何使用这个应用。
 用户需求(概要):
-创建一个演示spring Server-Sent Events用法的示例应用。
+创建一个演示spring Server-Sent Events用法的应用。
 
 
 - 可测试性：单元测试、集成测试、测试覆盖率。
