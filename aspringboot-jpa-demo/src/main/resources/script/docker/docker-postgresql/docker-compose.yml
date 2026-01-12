@@ -1,0 +1,21 @@
+#docker-compose up
+version: '3.9'
+services:
+  postgres:
+    image: postgres:14
+    container_name: postgres14
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d pgqueue"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+volumes:
+  pg_data: {}
