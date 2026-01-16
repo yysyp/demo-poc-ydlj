@@ -1,0 +1,6 @@
+This is a real-time nostro account visualization system designed for account liquidity management. The system provides near real-time display of account and transaction information, offering essential support for funding needs in business transactions and improving the efficiency of fund utilization. The key features here are real-time capability and data accuracy.
+To address real-time performance, we have implemented the following three measures at the system design level:
+First, ClickHouse was selected as the analytical database. Its features, such as columnar storage, data compression, and sparse indexing, have significantly optimized query efficiency.
+Second, a Redis in-memory caching mechanism was introduced, which effectively avoids disk I/O latency and enhances data access speed.
+Third, a paginated lazy loading solution was applied to massive real-time transaction data to prevent system performance degradation due to excessively large data volumes.
+Ultimately, we achieved a sub-second database response performance under the condition of one million data records and 20 concurrent accesses.
