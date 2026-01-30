@@ -1,0 +1,131 @@
+### GitHub Copilot API 测试
+
+### 1. 发起设备授权流程
+POST http://localhost:10001/api/copilot/v1/auth/initiate
+Content-Type: application/json
+
+###
+
+### 2. 用户授权后，完成认证
+POST http://localhost:10001/api/copilot/v1/auth/complete
+Content-Type: application/json
+
+{
+  "deviceCode": "YOUR_DEVICE_CODE_FROM_STEP_1"
+}
+
+###
+
+### 3. 发送消息（使用 sessionId）
+POST http://localhost:10001/api/copilot/v1/chat
+Content-Type: application/json
+
+{
+  "sessionId": "YOUR_SESSION_ID_FROM_STEP_2",
+  "message": "Hello, can you help me write a Java program?"
+}
+
+###
+
+### 4. 发送流式消息
+POST http://localhost:10001/api/copilot/v1/chat/stream
+Content-Type: application/json
+
+{
+  "sessionId": "YOUR_SESSION_ID_FROM_STEP_2",
+  "message": "Explain what is Spring Boot"
+}
+
+###
+
+### 5. 查看会话状态
+GET http://localhost:10001/api/copilot/v1/session/YOUR_SESSION_ID
+
+###
+
+### 6. 登出（删除会话）
+DELETE http://localhost:10001/api/copilot/v1/session/YOUR_SESSION_ID
+
+###
+
+### ========================================================
+### 底层 API（高级用法）
+### ========================================================
+
+### 7. 发起设备流（底层）
+POST http://localhost:10001/api/auth/github/copilot/device/initiate
+Content-Type: application/json
+
+###
+
+### 8. 检查设备流状态
+GET http://localhost:10001/api/auth/github/copilot/device/status?deviceCode=YOUR_DEVICE_CODE
+
+###
+
+### 9. 获取 Access Token（底层）
+POST http://localhost:10001/api/auth/github/copilot/device/token
+Content-Type: application/json
+
+{
+  "deviceCode": "YOUR_DEVICE_CODE"
+}
+
+###
+
+### 10. 获取 Copilot Token
+POST http://localhost:10001/api/copilot/token
+Authorization: Bearer YOUR_GITHUB_ACCESS_TOKEN
+Content-Type: application/json
+
+###
+
+### 11. 简单对话
+POST http://localhost:10001/api/copilot/chat/simple
+Authorization: Bearer YOUR_COPILOT_TOKEN
+Content-Type: application/json
+
+{
+  "message": "What is Java?"
+}
+
+###
+
+### 12. 完整对话请求
+POST http://localhost:10001/api/copilot/chat
+Authorization: Bearer YOUR_COPILOT_TOKEN
+Content-Type: application/json
+
+{
+  "model": "gpt-5",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Hello!"
+    }
+  ]
+}
+
+###
+
+### 13. 多轮对话
+POST http://localhost:10001/api/copilot/chat/conversation
+Authorization: Bearer YOUR_COPILOT_TOKEN
+Content-Type: application/json
+
+[
+  {
+    "role": "user",
+    "content": "What is Spring Boot?"
+  },
+  {
+    "role": "assistant",
+    "content": "Spring Boot is a framework..."
+  },
+  {
+    "role": "user",
+    "content": "Can you show me an example?"
+  }
+]
+
+###

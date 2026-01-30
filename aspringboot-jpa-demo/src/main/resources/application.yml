@@ -164,6 +164,19 @@ cache:
     eviction-policy: LRU      # 淘汰策略：LRU, LFU, FIFO, RANDOM, TTL
     cleanup-interval: 60000   # 清理间隔（毫秒）
 
+# GitHub Copilot Configuration
+github:
+  copilot:
+    # 使用官方 Client ID（无需创建 OAuth App）
+    client-id: Iv1.b507a08c87ecfe98
+    device-code-url: https://github.com/login/device/code
+    access-token-url: https://github.com/login/oauth/access_token
+    copilot-token-url: https://api.github.com/copilot_internal/v2/token
+    chat-api-url: https://api.githubcopilot.com/chat/completions
+    model: gpt-5
+    polling-interval: 5000  # 轮询间隔（毫秒）
+    max-polling-attempts: 60  # 最大轮询次数
+
 app:
   scheduler:
     locks:
