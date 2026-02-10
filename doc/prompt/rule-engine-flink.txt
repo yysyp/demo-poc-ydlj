@@ -14,22 +14,12 @@
 - 使用 JDK21 以上版本。
 - 如果使用 Apache Flink，使用 Flink 1.16.3 以上版本。
 - 如果使用 Spring 框架，使用 Spring Boot 4.0.0 以上版本。
-- 如果添加(Controller/REST API)，考虑分层架构，如：表现层, 业务逻辑层, 数据访问层，领域模型层等，定义：Request，Response，Dto，Entity等对象传输数据。
-- 如果添加(Controller/REST API)，需要在Controller类上加上完整的基于“Swagger”的声明配置，默认用Swagger v3以上版本。
-- 如果添加(Controller/REST API)，对于返回结果，统一使用如下一致的返回结构("meta"属性用于分页时包含相关信息)：
-成功返回：{"success":true, "code":String, "message":String, "timestamp":Instant, "traceId":String, "data":Object, "meta": {"pageNumber":int, "pageSize":int, "totalPages":int, "totalElements":long}}
-失败返回：{"success":false, "code":String, "message":String, "timestamp":Instant, "traceId":String, "data":Object, "errors":[{"field":String, "code":String, "message":String}]}
-- 如果添加 Entity 实体，对于非连接作用的Entity实体，需要有createdAt，createdBy，updatedAt，updatedBy字段。
 - 编译然后运行应用，如果过程中出现错误，分析日志和错误原因，并在修复错误之后重新编译和运行，直到应用可以正常启动。
 - 创建或更新测试数据，脚本等。
 - 创建或更新README.md，详细介绍如何使用这个应用。
 用户需求(概要):
-创建一个演示spring Server-Sent Events用法的应用。
-- 创建或更新单元测试，确保测试代码可并行执行和可重复执行，确保代码逻辑分支100%覆盖，行覆盖率90%以上。
-- 创建或更新基于cucumber的自动化测试，确保测试代码可并行执行和可重复执行，确保代码逻辑分支100%覆盖，行覆盖率90%以上。
-- 创建基于Jenkins的持续集成/持续部署（CI/CD）pipeline，基于容器化（Docker）、容器编排（Kubernetes）部署。
-- 可测试性：单元测试、集成测试、测试覆盖率。
-- 可维护性：日志记录、监控、告警、文档。
-- 可扩展性：系统拆分、服务治理、配置管理。
+创建一个对交易数据基于规则打标签的flink应用,用flink运行起来,生成parquet结果文件。
+- 使用h2存储模拟的交易数据。
+- 基于drools动态加载规则。
 
-/adev
+
