@@ -24,7 +24,8 @@ public class ParquetTool {
 
 
     public static void main(String[] args) throws IOException {
-        System.setProperty("hadoop.home.dir", System.getProperty("user.dir") + "/src/test/resource/hadoop-2.6.0");
+        //https://github.com/steveloughran/winutils/tree/master/hadoop-3.0.0/bin  
+        //System.setProperty("hadoop.home.dir", System.getProperty("user.dir") + "/src/test/resource/hadoop-2.6.0");
         String path = "target/parquet/test-output.parquet";
         Files.deleteIfExists(
                 Paths.get(path)
@@ -66,8 +67,10 @@ public class ParquetTool {
     }
 
     public static void writeParquet(String path, Schema schema, List<Map<String, Object>> records, Configuration configuration) {
+        org.apache.hadoop.fs.Path fsPath = new org.apache.hadoop.fs.Path(path);
+        System.out.println("fsPath " + fsPath.toUri());
         try (ParquetWriter<GenericRecord> writer = AvroParquetWriter
-                .<GenericRecord>builder(HadoopOutputFile.fromPath(new org.apache.hadoop.fs.Path(path), configuration))
+                .<GenericRecord>builder(HadoopOutputFile.fromPath(fsPath, configuration))
                 .withSchema(schema).withConf(configuration).build()) {
 
             for(Map<String, Object> record : records) {
