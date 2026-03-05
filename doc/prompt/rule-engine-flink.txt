@@ -18,8 +18,8 @@
 - 创建或更新测试数据，脚本等。
 - 创建或更新README.md，详细介绍如何使用这个应用。
 用户需求(概要):
-创建一个对交易数据基于规则打标签的flink应用,用flink运行起来,生成parquet结果文件。
+创建一个对交易数据基于规则打标签的Flink SQL应用,用flink运行起来,生成CSV结果文件。
 - 使用h2存储模拟的交易数据。
-- 使用flinkSQL, 结合UDF，UDF里面调用drools规则引擎，drools动态加载规则。
+- 使用Flink SQL 结合自定义函数（UDF）的方式应用drools规则引擎对交易数据打标签，而不是底层的Stream API的方式。
 
 
