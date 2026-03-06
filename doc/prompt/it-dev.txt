@@ -11,7 +11,7 @@
 - 要考虑可观测性: TraceId(链路追踪), 合理的日志记录。
 - 对于默认存储和传输的时间类型数据，统一使用 UTC 时间的 Instant。
 - 考虑容错性设计，如：熔断器模式，服务降级，限流策略等。
-- 使用 JDK21 以上版本。
+- 使用 JDK21 版本，本机JDK目录在： D:\app\zulu21.48.17-ca-jdk21.0.10
 - 如果使用 Apache Flink，使用 Flink 1.16.3 以上版本。
 - 如果使用 Spring 框架，使用 Spring Boot 4.0.0 以上版本。
 - 如果添加(Controller/REST API)，考虑分层架构，如：表现层, 业务逻辑层, 数据访问层，领域模型层等，定义：Request，Response，Dto，Entity等对象传输数据。
@@ -21,6 +21,7 @@
 失败返回：{"success":false, "code":String, "message":String, "timestamp":Instant, "traceId":String, "data":Object, "errors":[{"field":String, "code":String, "message":String}]}
 - 如果添加 Entity 实体，对于非连接作用的Entity实体，需要有createdAt，createdBy，updatedAt，updatedBy字段。
 - 编译然后运行应用，如果过程中出现错误，分析日志和错误原因，并在修复错误之后重新编译和运行，直到应用可以正常启动。
+- 创建或更新build.bat和run.bat文件，确保执行这两个脚本就可以成功编译和运行。
 - 创建或更新测试数据，脚本等。
 - 创建或更新README.md，详细介绍如何使用这个应用。
 用户需求(概要):

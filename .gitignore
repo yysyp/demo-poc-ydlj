@@ -10,11 +10,13 @@ git-ignored-file
 gitIgnoredFile
 upload-folder/
 ignorefolder/
+output/
 temp
 temporary
 tmp/
 out/
 log/
+logs/
 mypythonvenv
 venv
 .venv
