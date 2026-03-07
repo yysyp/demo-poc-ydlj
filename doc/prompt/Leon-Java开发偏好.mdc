@@ -1,0 +1,38 @@
+---
+description: 
+alwaysApply: true
+enabled: true
+updatedAt: 2026-03-07T06:13:18.083Z
+provider: 
+---
+
+- 使用 4 空格缩进（不使用 Tab）
+- 如果是已经存在的项目，则参考现有代码，在现有代码基础上开发
+- 遵循高内聚低耦合原则，合理划分模块，定义清晰的模块接口和依赖关系
+- 如果需要密码且密码可以设置为空，则把密码设置为空，不能设置为空则设置为： xxxxxxxx
+- 如果需要数据库，中间件或服务，优先考虑是否可以用 embedded 模式，其次考虑用 docker 安装这个数据库，中间件或服务，并提供脚本，以便于应用本地运行
+- 要考虑安全性设计，可扩展性设计，高可用与容错
+- 要考虑可观测性：TraceId(链路追踪), 合理的日志记录（敏感信息过滤）等，以便于快速定位问题
+- 要考虑高鲁棒性，高弹性，易维护，高性能
+- 确保规避常见的这些问题：1)空指针异常; 2)并发，线程安全问题; 3)资源泄漏，内存泄漏; 4)集合遍历时删除元素; 5)异常处理不当等
+- 要考虑是否有多线程或多实例的共享资源并发访问场景，(如果有，选择合适的方案，例如：只读、原子操作、无锁、多副本、同步控制、分布式锁等确保并发安全)，分布式事务与一致性优先考虑最终一致性方案
+- 对于默认存储和传输的时间类型数据，统一使用 UTC 时间的 Instant
+- 异常处理要求：只在必要处捕获，避免吞掉异常；使用自定义业务异常区分系统异常； 使用try-with-resources或finally确保IO、数据库连接等资源正确关闭； 返回给客户端的错误信息不泄露技术细节，同时内部记录详细堆栈
+- 如果添加API，API规范：遵循RESTful或GraphQL，使用URI路径版本管理策略
+- 如果添加API，建议采用分层架构，例如表现层、业务逻辑层、数据访问层和领域模型层。同时，需明确定义用于数据传输的对象，如 Request、Response、DTO 和 Entity 等
+- 如果添加API，要在Controller类上加上完整的基于"Swagger"的声明配置
+- 如果添加API，对于返回的JSON结果，统一使用如下返回结构("meta"属性用于分页时包含相关信息)：
+成功返回：{"success":true, "code":String, "message":String, "timestamp":Instant, "traceId":String, "data":Object, "meta": {"pageNumber":int, "pageSize":int, "totalPages":int, "totalElements":long}}
+失败返回：{"success":false, "code":String, "message":String, "timestamp":Instant, "traceId":String, "data":Object, "errors":[{"field":String, "code":String, "message":String}]}
+- 如果添加 Entity 实体，对于非连接作用的Entity实体，需要有createdAt，createdBy，updatedAt，updatedBy字段
+- 如果添加或更新单元测试，覆盖率要求：核心业务逻辑单元测试覆盖率不低于80%，分支覆盖全面； 测试独立性：每个测试用例独立，不依赖外部环境，使用Mockito模拟依赖； 边界条件：测试正常路径、异常路径、边界值，确保代码健壮性
+- 用英文输出所有的代码，配置，注释和文档
+- 创建或更新测试数据，测试代码等
+- 编译然后运行应用，如果过程中出现错误，分析日志和错误原因，并在修复错误之后重新编译和运行，直到应用可以运行成功并且测试结果符合预期
+- 创建或更新build.bat，build.sh以及run.bat，run.sh脚本文件，确保执行build和run就可以成功编译和运行应用
+- 创建或更新README.md，详细介绍如何使用这个应用
+- JDK21 安装在如下目录：D:\app\zulu21.48.17-ca-jdk21.0.10
+- JDK17 安装在如下目录：D:\app\azul-17.0.10
+- git.exe 安装在如下目录：D:\app\Git\bin
+- bash.exe 安装在如下目录：D:\app\Git\bin
+- sh.exe 安装在如下目录：D:\app\Git\bin
