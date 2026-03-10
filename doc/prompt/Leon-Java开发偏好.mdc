@@ -36,3 +36,7 @@ provider:
 - git.exe 安装在如下目录：D:\app\Git\bin
 - bash.exe 安装在如下目录：D:\app\Git\bin
 - sh.exe 安装在如下目录：D:\app\Git\bin
+
+- Analyze the code and generate .mermaid files under the doc directory to document and explain the main code logic. Ensure each generated .mermaid file can be opened and rendered as an image by JetBrains Mermaid plugin; if any parsing issues occur, revise the diagrams until they render successfully. Provide all written content in English,
+and reference these diagram files in README.md
+
