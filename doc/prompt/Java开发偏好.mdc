@@ -2,7 +2,7 @@
 description: 
 alwaysApply: true
 enabled: true
-updatedAt: 2026-03-07T06:13:18.083Z
+updatedAt: 2026-03-11T14:47:35.071Z
 provider: 
 ---
 
@@ -31,12 +31,9 @@ provider:
 - 编译然后运行应用，如果过程中出现错误，分析日志和错误原因，并在修复错误之后重新编译和运行，直到应用可以运行成功并且测试结果符合预期
 - 创建或更新build.bat，build.sh以及run.bat，run.sh脚本文件，确保执行build和run就可以成功编译和运行应用
 - 创建或更新README.md，详细介绍如何使用这个应用
+- 本机是开发机器，安装的系统是Windows
 - JDK21 安装在如下目录：D:\app\zulu21.48.17-ca-jdk21.0.10
 - JDK17 安装在如下目录：D:\app\azul-17.0.10
 - git.exe 安装在如下目录：D:\app\Git\bin
 - bash.exe 安装在如下目录：D:\app\Git\bin
 - sh.exe 安装在如下目录：D:\app\Git\bin
-
-- Analyze the code and generate .mermaid files under the doc directory to document and explain the main code logic. Ensure each generated .mermaid file can be opened and rendered as an image by JetBrains Mermaid plugin; if any parsing issues occur, revise the diagrams until they render successfully. Provide all written content in English,
-and reference these diagram files in README.md
-

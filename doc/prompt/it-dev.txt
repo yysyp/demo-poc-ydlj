@@ -42,3 +42,6 @@ xxx
 - 编译然后运行应用，如果过程中出现错误，分析日志和错误原因，并在修复错误之后重新编译和运行，直到应用可以运行成功并且测试结果符合预期。
 - 创建或更新build.bat和run.bat文件，确保执行这两个脚本就可以成功编译和运行。
 - 创建或更新README.md，详细介绍如何使用这个应用。
+
+- Analyze the code and generate .mermaid files under the doc directory to document and explain the main code logic. Ensure each generated .mermaid file can be opened and rendered as an image by JetBrains Mermaid plugin; if any parsing issues occur, revise the diagrams until they render successfully. Provide all written content in English,
+and reference these diagram files in README.md
