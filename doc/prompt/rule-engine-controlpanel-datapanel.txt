@@ -1,0 +1,7 @@
+创建一个Java项目，实现基于给定规则，对交易数据打tag的应用。要求：
+- 分开Etl Control panel和 Etl Data panel两个模块, Etl Control panel基于drools规则引擎，定义规则和发布规则以及数据schema, meta data等。 Etl Data panel基于Flink使用Etl Control panel定义的规则进行数据处理。
+- 规则管理基于drools规则引擎
+- 数据打标签处理基于Flink 1.16.3
+- JDK 基于JDK17
+- 规则要易于理解，易管理，版本化
+
