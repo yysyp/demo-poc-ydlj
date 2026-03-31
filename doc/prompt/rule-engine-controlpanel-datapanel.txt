@@ -4,4 +4,5 @@
 - 数据打标签处理基于Flink 1.16.3
 - JDK 基于JDK17
 - 规则要易于理解，易管理，版本化
+- Etl Data panel 基于flink SQL实现读取csv文件，基于规则打标签，然后再sink到结果csv文件，用到的SQL从Etl Control panel获取。
 
