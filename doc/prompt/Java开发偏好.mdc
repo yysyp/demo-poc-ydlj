@@ -37,11 +37,18 @@ provider:
 - git.exe 安装在如下目录：D:\app\Git\bin
 - bash.exe 安装在如下目录：D:\app\Git\bin
 - sh.exe 安装在如下目录：D:\app\Git\bin
+- 本机安装有python3，node，docker
+- 支持兼容 W3C，Trace Context，B3，Micrometer/OpenTelemetry 的 Trace ID 提取 
 
-- 提升单元测试覆盖率，要求行覆盖率大于等于98%，测试代码要可以并行执行和重复执行，确保执行"mvn clean test" 后是 BUILD SUCCESS
-- 创建或更新基于cucumber的自动化测试，确保所有的Restful API接口都覆盖，测试案例包含：成功，失败，边界值等场景，测试代码要可以并行执行和重复执行，确保验证通过
-- Improve Junit code coverage for xxx, make link coverage to more than 98%, executing the missing paths, especially: if/else; catch; early return; error handling. And make sure "mvn clean test" BUILD SUCCESS
-- Analyze the code and generate .mermaid files under the doc directory to document and explain the main code logic. Ensure each generated .mermaid file can be opened and rendered as an image by JetBrains Mermaid plugin; if any parsing issues occur, revise the diagrams until they render successfully. Provide all written content in English,
-and generate code-explain.md file to explain the code and refer these diagram files in it
-- 分析项目代码，生成 .mermaid 文件到doc目录下，图形化解释代码逻辑，确保生成的 .mermaid 文件都可以被JetBrains Mermaid插件打开并渲染成图片，如有问题，请修复直到渲染成功。
-提供项目代码介绍文件code-explain.md，并引用这些mermaid文件。
+- UT: 提升单元测试覆盖率，要求行覆盖率大于等于95%，测试代码要可以并行执行和重复执行，确保执行 "mvn clean test" 后是 BUILD SUCCESS
+- AT: 创建或更新基于cucumber的自动化测试，确保所有的Restful API接口都覆盖，测试案例包含：成功，失败，边界值等场景，测试代码要可以并行执行和重复执行，确保验证通过
+- UT: Improve Junit code coverage for xxx, make line coverage to more than 95%, executing the missing paths, especially: if/else; catch; early return; error handling. And make sure "mvn clean test" BUILD SUCCESS
+- Diagram: Analyze the code and generate .mermaid files under the doc directory to document and explain the code logic. Ensure each generated .mermaid file can be opened and rendered as an image by JetBrains Mermaid plugin; if any parsing issues occur, revise the diagrams until they render successfully. 
+Generate code-explain.md file to explain the code and refer these diagram files in it.
+- Diagram: 分析项目代码，生成 .mermaid 文件到doc目录下，图形化解释代码逻辑，确保生成的 .mermaid 文件都可以被JetBrains Mermaid插件打开并渲染成图片，如有问题，请修复直到渲染成功。
+提供项目代码介绍文件code-explain.md，并引用这些 .mermaid文件。
+- Readme&Diagram: Analyze the code and generate or update the readme.md file to make sure it documents the real behavior, extension points, configuration and copy-paste samples.
+For main or complicated logic, generate .mermaid files under the doc directory to explain it and refer these files in readme.md 
+Ensure each generated .mermaid file can be opened and rendered as an image by JetBrains Mermaid plugin
+-  
+
