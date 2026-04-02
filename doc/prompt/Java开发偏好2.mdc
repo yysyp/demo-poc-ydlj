@@ -49,10 +49,15 @@
   - bash.exe 安装在：D:\app\Git\bin
   - sh.exe 安装在：D:\app\Git\bin
 ## 参考信息
-- CI/CD Pipline 相关工具参考： xxx
-- 完整的系统是基于微服务架构的，包含各种微服务，部署在GCP上K8S集群中，主要的几个服务及源代码：
-  - 网关源代码： xxx
-  - Entitlement服务源代码： xxx
+- CI/CD Pipeline 工具： blabla
+- 系统架构：基于微服务架构，各服务部署于 GCP Kubernetes 集群
+- 服务源码目录约定：
+  - xxx-api：功能实现代码
+  - xxx-auto：自动化测试代码
+  - xxx-performance：性能测试代码
+- 主要服务及源码：
+  - 网关服务： blabla
+  - Entitlement 服务： blabla
   
    
   
