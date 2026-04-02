@@ -25,7 +25,7 @@ provider:
 - 如果添加API，要在Controller类上加上完整的基于"Swagger"的声明配置
 - 如果添加API，对于返回的JSON结果，统一使用如下返回结构("meta"属性用于分页时包含相关信息)：
 成功返回：{"success":true, "code":String, "message":String, "timestamp":Instant, "traceId":String, "data":T, "meta": {"pageNumber":int, "pageSize":int, "totalPages":int, "totalElements":long}}
-失败返回：{"success":false, "code":String, "message":String, "timestamp":Instant, "traceId":String, "data":T, "errors":[{"field":String, "code":String, "message":String}]}
+失败返回：{"success":false, "code":String, "message":String, "timestamp":Instant, "traceId":String, "errors":[{"field":String, "code":String, "message":String}]}
 - 如果添加 Entity 实体，对于非连接作用的Entity实体，需要有createdAt，createdBy，updatedAt，updatedBy字段
 - 如果添加或更新单元测试，覆盖率要求：核心业务逻辑单元测试覆盖率不低于80%，分支覆盖全面； 测试独立性：每个测试用例独立，不依赖外部环境，使用Mockito模拟依赖； 边界条件：测试正常路径、异常路径、边界值，确保代码健壮性
 - 用英文输出所有的代码，配置，注释和文档
