@@ -9,7 +9,8 @@ provider:
 - 使用 4 空格缩进（不使用 Tab）
 - 如果是已经存在的项目，则参考现有代码，在现有代码基础上开发
 - 遵循高内聚低耦合原则，合理划分模块，定义清晰的模块接口和依赖关系
-- 如果需要密码且密码可以设置为空，则把密码设置为空，不能设置为空则使用环境变量配置并设置为： xxxxxxxx
+- 如果需要密码且密码可以设置为空，则把密码设置为空，不能设置为空则设置为： xxxxxxxx
+- 敏感信息，比如：Keystore（密钥库），API密钥/令牌，账号密码，加密密钥，TLS/SSL私钥，加密证书、JWT签名密钥、以及各类账户的登录凭证，放入到ignore目录，并确保ignore目录配置在git .gitignore中
 - 可以考虑使用类似Jasypt (Java Simplified Encryption)的库，对配置的敏感信息进行加密，这样只需要提供Jasypt密码即可
 - 如果需要数据库，中间件或服务，优先考虑是否可以用 embedded 模式，其次考虑用 docker 安装这个数据库，中间件或服务，并提供脚本，以便于应用本地运行
 - 要考虑安全性设计，可扩展性设计，高可用与容错
@@ -43,6 +44,7 @@ provider:
 - bash.exe 安装在如下目录：D:\app\Git\bin
 - sh.exe 安装在如下目录：D:\app\Git\bin
 - 本机安装有python3，node，docker，maven
+
 
 
 - <UT>: 提升单元测试覆盖率，要求行覆盖率大于等于95%，测试代码要可以并行执行和重复执行，确保执行 "mvn clean test" 后是 BUILD SUCCESS
