@@ -10,7 +10,7 @@ provider:
 - 如果是已经存在的项目，则参考现有代码，在现有代码基础上开发
 - 遵循高内聚低耦合原则，合理划分模块，定义清晰的模块接口和依赖关系
 - 如果需要密码且密码可以设置为空，则把密码设置为空，不能设置为空则设置为： xxxxxxxx
-- 可以考虑使用类似Jasypt (Java Simplified Encryption)的库，对配置的敏感信息进行加密配置，这样只需要提供Jasypt密码即可
+- 可以考虑使用类似Jasypt (Java Simplified Encryption)的库，对配置的敏感信息进行加密，这样只需要提供Jasypt密码即可
 - 如果需要数据库，中间件或服务，优先考虑是否可以用 embedded 模式，其次考虑用 docker 安装这个数据库，中间件或服务，并提供脚本，以便于应用本地运行
 - 要考虑安全性设计，可扩展性设计，高可用与容错
 - 要考虑可观测性：TraceId(链路追踪), 合理的日志记录（敏感信息过滤）等，以便于快速定位问题
@@ -35,14 +35,15 @@ provider:
 - 创建或更新README.md，详细介绍如何使用这个应用，包含可以直接copy-paste的代码或配置例子，核心重要逻辑可提供.mermaid 文件图形化介绍，确保.mermaid文件可以被Mermaid插件打开并渲染成图片，如有问题，请修复直到渲染成功
 - 重复检查一遍代码，确保没有BUG
 - 本机是开发机器，安装的系统是Windows
+- 支持兼容 W3C，Trace Context，B3，Micrometer/OpenTelemetry 的 Trace ID 提取 
+- 代码使用Java编写，使用Maven构建
 - JDK21 安装在如下目录：D:\app\zulu21.48.17-ca-jdk21.0.10
 - JDK17 安装在如下目录：D:\app\azul-17.0.10
 - git.exe 安装在如下目录：D:\app\Git\bin
 - bash.exe 安装在如下目录：D:\app\Git\bin
 - sh.exe 安装在如下目录：D:\app\Git\bin
 - 本机安装有python3，node，docker，maven
-- 支持兼容 W3C，Trace Context，B3，Micrometer/OpenTelemetry 的 Trace ID 提取 
-- 代码使用Java编写，使用Maven构建
+
 
 - <UT>: 提升单元测试覆盖率，要求行覆盖率大于等于95%，测试代码要可以并行执行和重复执行，确保执行 "mvn clean test" 后是 BUILD SUCCESS
 - <AT>: 创建或更新基于cucumber的自动化测试，确保所有的Restful API接口都覆盖，测试案例包含：成功，失败，边界值等场景，测试代码要可以并行执行和重复执行，确保验证通过
